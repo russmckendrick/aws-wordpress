@@ -45,9 +45,9 @@
     name: "{{ environment_name }}-elb"
     state: "absent"
 
-- name: prompt
+- name: wait for 2 minutes before continuing
   pause:
-    prompt: "Make sure the elastic load balancer has been terminated before proceeding"
+    minutes: 2
 
 - name: remove the target group
   elb_target_group:
